@@ -15,10 +15,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <link
-          rel="apple-touch-icon"
-          href="/assets/icons/icon-384x384.png"
-        ></link>
+        <meta name="theme-color" content="#000000" />
+        <link rel="apple-touch-icon" href="/icon-384x384.png"></link>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body>
         <Navigation />
