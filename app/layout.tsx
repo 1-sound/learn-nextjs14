@@ -1,6 +1,7 @@
 import "../styles/global.css";
 import { Metadata } from "next";
 import Navigation from "../components/navigation";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: {
@@ -13,6 +14,9 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="manifest" href="/manifest.json" />
+      </Head>
       <body>
         <Navigation />
         {children}
