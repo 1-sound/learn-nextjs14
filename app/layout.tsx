@@ -2,6 +2,7 @@ import "../styles/global.css";
 import { Metadata } from "next";
 import Navigation from "../components/navigation";
 import Head from "next/head";
+import { useEffect } from "react";
 
 export const metadata: Metadata = {
   title: {
@@ -12,6 +13,21 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/sw.js").then(
+          function (registration) {
+            console.log("서비스 워커 등록 성공:", registration);
+          },
+          function (err) {
+            console.log("서비스 워커 등록 실패:", err);
+          }
+        );
+      });
+    }
+  }, []);
+
   return (
     <html lang="en">
       <Head>
